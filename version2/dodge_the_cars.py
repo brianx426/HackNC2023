@@ -31,15 +31,16 @@ other_image = pygame.transform.scale(other_image, (CAR_WIDTH + 80, CAR_HEIGHT))
 # Initialize player's car position
 player_car_x = WIDTH // 2 - CAR_WIDTH // 2
 car_y = HEIGHT - CAR_HEIGHT - 20
-car_speed = 23
+car_speed = 10
 
 # Initialize road parameters
 road_width = 400
+road_height = 800
 stripe_width = 10
 stripe_height = 100
 stripe_distance = 50
 road_y = 0
-road_speed = 23  # Speed at which the road moves
+road_speed = 10  # Speed at which the road moves
 
 # Create lists to manage stripes and other cars
 other_cars = []
@@ -72,11 +73,14 @@ while running:
 
     if not game_over:
         keys = pygame.key.get_pressed()
-        if (keys[pygame.K_LEFT] or keys[pygame.K_a])and player_car_x > 0:
+        if (keys[pygame.K_LEFT] or keys[pygame.K_a]) and player_car_x > 0:
             player_car_x -= car_speed
         if (keys[pygame.K_RIGHT] or keys[pygame.K_d]) and player_car_x < WIDTH - CAR_WIDTH:
             player_car_x += car_speed
-
+        if (keys[pygame.K_UP] or keys[pygame.K_w]) and car_y > 0:
+            car_y -= car_speed
+        if (keys[pygame.K_DOWN] or keys[pygame.K_s]) and car_y < HEIGHT -CAR_HEIGHT:
+            car_y += car_speed
         # Update the road
         road_y += road_speed
 
@@ -103,7 +107,7 @@ while running:
             car.move_ip(0, road_speed)
 
         # Check for collisions between the player's car and other cars
-        player_car_rect = pygame.Rect(player_car_x, car_y, CAR_WIDTH, CAR_HEIGHT)
+        player_car_rect = pygame.Rect(player_car_x, car_y, CAR_WIDTH - 10, CAR_HEIGHT - 20)
         for car in other_cars:
             if player_car_rect.colliderect(car):
                 game_over = True
