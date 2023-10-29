@@ -23,10 +23,11 @@ pygame.display.set_caption("High Speed Craze: Avoid the Cars!")
 # Load car image
 car_image = pygame.image.load("img/yellow_car.png")
 car_image = pygame.transform.scale(car_image, (CAR_WIDTH, CAR_HEIGHT))
-
+car_image.set_colorkey((0, 0, 0))
 # Load other car image
 other_image = pygame.image.load("img/red_car.png")
 other_image = pygame.transform.scale(other_image, (CAR_WIDTH + 80, CAR_HEIGHT))
+other_image.set_colorkey((0, 0, 0))
 
 # Initialize player's car position
 player_car_x = WIDTH // 2 - CAR_WIDTH // 2
@@ -94,7 +95,7 @@ while running:
         # Check the timer for stripe generation
         stripe_timer += 1
         if stripe_timer >= stripe_interval:
-            new_stripe = pygame.Rect(WIDTH // 2 - stripe_width // 2, -stripe_width, stripe_width, stripe_height)
+            new_stripe = pygame.Rect(WIDTH // 2 - stripe_width // 2, - stripe_width, stripe_width, stripe_height)
             stripes.append(new_stripe)
             stripe_timer = 0
 
@@ -107,9 +108,12 @@ while running:
             car.move_ip(0, road_speed)
 
         # Check for collisions between the player's car and other cars
-        player_car_rect = pygame.Rect(player_car_x, car_y, CAR_WIDTH - 10, CAR_HEIGHT - 20)
+        player_car_rect = pygame.Rect(player_car_x, car_y, CAR_WIDTH, CAR_HEIGHT)
+        player_car_hitbox = pygame.Rect(player_car_x + 5, car_y + 10, CAR_WIDTH - 20, CAR_HEIGHT - 20)
+
         for car in other_cars:
-            if player_car_rect.colliderect(car):
+            car_hitbox = pygame.Rect(car.left + 5, car.top + 10, CAR_WIDTH - 20, CAR_HEIGHT - 20)
+            if player_car_hitbox.colliderect(car_hitbox):
                 game_over = True
             else:
                 score += 1  # Increase the score when no collision occurs
