@@ -110,9 +110,9 @@ class Battle:
                     for move in chrt.moveset:
                         if chrt.moveset[0] == move:
                             pass
-                    else:
-                        print(f"{i}. {move.name} - {move.description}")
-                        i += 1
+                        else:
+                            print(f"{i}. {move.name} - {move.description}")
+                            i += 1
                 p_choice = input("Which move would you like to use? Enter the number of the move you wish to use: ")
                 while p_choice not in [str(i) for i in range(1, len(chrt.moveset) + 1)]:
                     p_choice = input("That's not a valid choice! Choose again: ")

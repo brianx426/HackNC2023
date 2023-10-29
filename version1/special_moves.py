@@ -12,11 +12,11 @@ Serenity = GachaCharacter("Serenity", 3000, 10, 200, 7, 10, 1.5, True, [
          0, False),
     Move(
         "Chain Sparkle",
-        "Hits all enemies with a chain sparkle for 100% of her attack. This ability deals 15% more per enemy alive.",
+        "Hits all enemies with a chain sparkle for 80% of her attack. This ability deals 5% more per enemy.",
         1, 0, True),
     Move(
         "Glitter Bomb",
-        "Launches a glitter bomb towards her enemies, dealing 80% of her attack. This ability deals 20% more damage for each ally alive.",
+        "Launches a glitter bomb towards her enemies, dealing 120% of her attack. This ability deals 15% more damage for each ally alive.",
         1, 0, True)
 ], .025, "img/serenity.png", "img/serenity_splash.png")
 
@@ -41,7 +41,7 @@ ZohphiaAA: Move = Move(
     1.0, 1, False)
 ZohphiaS1: Move = Move(
     "Moonlight Vigil",
-    "Leaps into the sky and plunges her sword into an enemy, dealing 1000%/total number of enemies of attack to that enemy.",
+    "Leaps into the sky and plunges her sword into an enemy, dealing 300% of her attack if the target has more max health than her, and 125% if they have less max health. ",
     10, 1, False)
 ZohphiaS2: Move = Move(
     "Lunar Lance",
@@ -72,7 +72,7 @@ KanaAA: Move = Move(
     "Kana slashes her enemy with her katanas, dealing 100% of her attack to one enemy.",
     1.0, 1, False)
 KanaS1: Move = Move("Focus Slash", "300% of atk to one enemy.", 3.0, 1, False)
-KanaS2: Move = Move("Wide Slash", "Slashes all enemes for 75% of Kana's atk.",
+KanaS2: Move = Move("Wide Slash", "Slashes all enemes for 95% of Kana's atk.",
                     .75, 1, True)
 Kana = GachaCharacter("Kana", 1700, 3, 125, 10, 10, 1.5, True,
                       [KanaAA, KanaS1, KanaS2], .05, "img/kana.png",
@@ -84,7 +84,7 @@ ShizuoAA: Move = Move(
     0.75, 1, False)
 ShizuoS1: Move = Move(
     "Deathbringer Stance",
-    "Shizuo enters his Deathbringer Stance before plunging his blade into his enemy, dealing 175% of Shizuo's attack to a single enemy, healing him for 50% of the damage dealt.",
+    "Shizuo enters his Deathbringer Stance before plunging his blade into his enemy, dealing 175% of Shizuo's attack to a single enemy.",
     1.75, 1, False)
 ShizuoS2: Move = Move(
     "World Ender",
@@ -115,11 +115,11 @@ RabadonAA: Move = Move(
     0.75, 1, False)
 RabadonS1: Move = Move(
     "Meteor",
-    "Rabadon summons a meteor that deals 500% or her attack to all characters on the field.",
+    "Rabadon summons a meteor that has a chance to either deal double or six times her attack.",
     500, 1, True)
 RabadonS2: Move = Move(
     "Death",
-    "Rabadon crushes all enemies dealing 50% max HP damage to all enemies.",
+    "Rabadon curses all enemies. This attack has a 33% chance to one-shot all enemies and a 67% chance to deal 100% her attack.",
     0.5, 1, True)
 Rabadon = GachaCharacter("Rabadon", 1000, 7, 200, 0, 10, 1.5, True,
                          [RabadonAA, RabadonS1, RabadonS2], .05,

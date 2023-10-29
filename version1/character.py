@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from math import floor
 from random import randint
 from move import Move
 
@@ -69,9 +70,9 @@ class GachaCharacter(Character):
         elif move.name == "Unstoppable Onslaught":
             return randint(1, 9999000) / 100
         elif move.name == "Wide Slash":
-            return .75 * self.atk
+            return .95 * self.atk
         elif move.name == "World Ender":
-            return (1 - (self.hp / self.max_hp)) * self.atk
+            return 10 * (1 - (self.hp / self.max_hp)) * self.atk
         elif move.name == "Death":
             chance = randint(1, 3)
             if chance == 1:
@@ -81,9 +82,9 @@ class GachaCharacter(Character):
         elif move.name == "Meteor":
             chance = randint(2, 3)
             if chance == 2:
-                return 10 * self.atk
+                return 2 * self.atk
             else:
-                return 20 * self.atk
+                return 6 * self.atk
         else:
             return 0
 
@@ -106,11 +107,11 @@ class GachaCharacter(Character):
     def check_special_moves_single(self, target: Character, move: Move) -> float:
         if move.name == "Moonlight Vigil":
             if target.max_hp > self.max_hp:
-                return 10 * 1.5 * self.atk
+                return 3 * self.atk
             else:
-                return 10 * .75 * self.atk
+                return 1.25 * self.atk
         elif move.name == "Lunar Lance":
-            return (1 + (1 * (1 - (self.hp / self.max_hp) * 100) % 10)) * self.atk
+            return (1 + (1 * (1 - floor((self.hp / self.max_hp) * 100) / 10))) * self.atk
         elif move.name == "Focus Slash":
             return 3 * self.atk
         elif move.name == "Deathbringer Stance":
