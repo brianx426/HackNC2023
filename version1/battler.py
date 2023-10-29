@@ -113,40 +113,40 @@ class Battle:
                         else:
                             print(f"{i}. {move.name} - {move.description}")
                             i += 1
-                p_choice = input("Which move would you like to use? Enter the number of the move you wish to use: ")
-                while p_choice not in [str(i) for i in range(1, len(chrt.moveset) + 1)]:
-                    p_choice = input("That's not a valid choice! Choose again: ")
-                if p_choice == "1":
-                    if chrt.moveset[1].cooldown == 0 and chrt.moveset[1].is_aoe:
-                        chrt.attack_aoe(list[Character](self.enemy_party), chrt.moveset[1])
+                    p_choice = input("Which move would you like to use? Enter the number of the move you wish to use: ")
+                    while p_choice not in [str(i) for i in range(1, len(chrt.moveset) + 1)]:
+                        p_choice = input("That's not a valid choice! Choose again: ")
+                    if p_choice == "1":
+                        if chrt.moveset[1].cooldown == 0 and chrt.moveset[1].is_aoe:
+                            chrt.attack_aoe(list[Character](self.enemy_party), chrt.moveset[1])
+                        else:
+                            enemies = ""
+                            for enemy in self.enemy_party:
+                                if not enemy.is_alive:
+                                    enemies += enemy.name + "{X}, "
+                                else:
+                                    enemies += enemy.name + ", "
+                            pick = input("Which enemy would you like to attack? Dead enemies are marked with an {X}. Enter the index of the enemy you wish to attack (First enemy is 0): ")
+                            print(enemies)
+                            while pick not in [str(i) for i in range(len(self.enemy_party))] or not self.enemy_party[int(pick)].is_alive:
+                                pick = input("That's not a valid choice! Choose again: ")
+                            chrt.attack_single(self.enemy_party[int(pick)], chrt.moveset[1])
                     else:
-                        enemies = ""
-                        for enemy in self.enemy_party:
-                            if not enemy.is_alive:
-                                enemies += enemy.name + "{X}, "
-                            else:
-                                enemies += enemy.name + ", "
-                        pick = input("Which enemy would you like to attack? Dead enemies are marked with an {X}. Enter the index of the enemy you wish to attack (First enemy is 0): ")
-                        print(enemies)
-                        while pick not in [str(i) for i in range(len(self.enemy_party))] or not self.enemy_party[int(pick)].is_alive:
-                            pick = input("That's not a valid choice! Choose again: ")
-                        chrt.attack_single(self.enemy_party[int(pick)], chrt.moveset[1])
-                else:
-                    if chrt.moveset[2].cooldown == 0 and chrt.moveset[2].is_aoe:
-                        chrt.attack_aoe(list[Character](self.enemy_party), chrt.moveset[2])
-                    else:
-                        enemies = ""
-                        for enemy in self.enemy_party:
-                            if not enemy.is_alive:
-                                enemies += enemy.name + "{X}, "
-                            else:
-                                enemies += enemy.name + ", "
-                        print("Which enemy would you like to attack? Dead enemies are marked with an {X}. ")
-                        print(enemies)
-                        pick = input("Enter the index of the enemy you wish to attack (First enemy is 0): ")
-                        while pick not in [str(i) for i in range(len(self.enemy_party))]:
-                            pick = input("That's not a valid choice! Choose again: ")
-                        chrt.attack_single(self.enemy_party[int(pick)], chrt.moveset[2])
+                        if chrt.moveset[2].cooldown == 0 and chrt.moveset[2].is_aoe:
+                            chrt.attack_aoe(list[Character](self.enemy_party), chrt.moveset[2])
+                        else:
+                            enemies = ""
+                            for enemy in self.enemy_party:
+                                if not enemy.is_alive:
+                                    enemies += enemy.name + "{X}, "
+                                else:
+                                    enemies += enemy.name + ", "
+                            print("Which enemy would you like to attack? Dead enemies are marked with an {X}. ")
+                            print(enemies)
+                            pick = input("Enter the index of the enemy you wish to attack (First enemy is 0): ")
+                            while pick not in [str(i) for i in range(len(self.enemy_party))]:
+                                pick = input("That's not a valid choice! Choose again: ")
+                            chrt.attack_single(self.enemy_party[int(pick)], chrt.moveset[2])
 
     def enemy_turn(self):
         if self.check_end_game():
