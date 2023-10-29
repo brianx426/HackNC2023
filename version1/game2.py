@@ -84,6 +84,8 @@ def party_menu():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 if button.collidepoint(event.pos):
+                    for card in player_cards:
+                        pygame.draw.rect(screen, CARD_COLOR, card)
                     screen.blit(serenity, (100, 400))
                     screen.blit(serenity, (300, 400))
                     screen.blit(serenity, (500, 400))
