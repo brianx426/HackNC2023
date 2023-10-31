@@ -102,10 +102,10 @@ def party_menu():
         # Add code to display character cards and handle interactions here
         for card in player_cards:
             pygame.draw.rect(screen, CARD_COLOR, card)
-        # screen.blit(serenity, (100, 400))
-        # screen.blit(serenity, (300, 400))
-        # screen.blit(serenity, (500, 400))
-        # screen.blit(serenity, (700, 400))
+        screen.blit(serenity, (100, 400))
+        screen.blit(serenity, (300, 400))
+        screen.blit(serenity, (500, 400))
+        screen.blit(serenity, (700, 400))
         # ...
 
         pygame.display.flip()
