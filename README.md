@@ -1,3 +1,10 @@
-# HackNC2023
+# Re: Vitalize
 
-This is our HackNC2023 project. We are creating a turn-based action strategy game.
+A turn based purely object oriented game.
+Planning to:
+  ChatGPT AI enemies
+  2 player
+  online
+  infinite team sizes
+  flashy abilites 
+  
