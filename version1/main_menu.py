@@ -22,7 +22,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Main Menu")
 
 # Load the background image
-background_image = pygame.image.load("img/Ai-Background.png")
+background_image = pygame.image.load("img/backgrounds/Ai-Background.png")
 background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
 
 # Create fonts for the menu options and title
@@ -36,7 +36,7 @@ selected_option = 0
 # Options menu
 def Gacha_menu():
     # Load the background image
-    background_image = pygame.image.load("img/options-background.png")
+    background_image = pygame.image.load("img/backgrounds/options-background.png")
     background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
 
     playing = True
@@ -55,14 +55,14 @@ def Gacha_menu():
     return
 
 def party_menu():
-    background_image = pygame.image.load("img/char-background.png")
+    background_image = pygame.image.load("img/backgrounds/char-background.png")
     background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
 
-    character1_image = pygame.image.load("img/serenity.png")
+    character1_image = pygame.image.load("img/character cards/serenity.png")
     character1_image = pygame.transform.scale(character1_image, (100, 200))
-    character2_image = pygame.image.load("img/swordgirl.png")
+    character2_image = pygame.image.load("img/character cards/kana.png")
     character2_image = pygame.transform.scale(character2_image, (100, 200))
-    character3_image = pygame.image.load("img/zohphia.png")
+    character3_image = pygame.image.load("img/character cards/zohphia.png")
     character3_image = pygame.transform.scale(character3_image, (100, 200))
     character4_image = pygame.image.load("img/rabadon.png")
     character4_image = pygame.transform.scale(character4_image, (100, 200))
@@ -122,13 +122,13 @@ def card_battle_game():
     enemy_card_image = pygame.image.load("img/bandit.png")
     enemy_card_image = pygame.transform.scale(enemy_card_image, (card_width, card_height))
     
-    character1_image = pygame.image.load("img/serenity.png")
+    character1_image = pygame.image.load("img/character cards/serenity.png")
     character1_image = pygame.transform.scale(character1_image, (50, 100))
-    character2_image = pygame.image.load("img/swordgirl.png")
+    character2_image = pygame.image.load("img/character cards/kana.png")
     character2_image = pygame.transform.scale(character2_image, (50, 100))
-    character3_image = pygame.image.load("img/zohphia.png")
+    character3_image = pygame.image.load("img/character cards/zohphia.png")
     character3_image = pygame.transform.scale(character3_image, (50, 100))
-    character4_image = pygame.image.load("img/rabadon.png")
+    character4_image = pygame.image.load("img/character cards/rabadon.png")
     character4_image = pygame.transform.scale(character4_image, (50, 100))
     # Game loop
     playing = True
