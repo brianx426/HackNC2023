@@ -33,6 +33,9 @@ class Character:
         self.moveset = moveset
         self.max_hp = hp
 
+    def __str__(self) -> str:
+        return self.name
+
     @abstractmethod
     def attack_aoe(self, targets, move) -> None:
         pass
